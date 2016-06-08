@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "TileButton.h"
 
+//conditional build to switch on two animations
 #define ALIPAY_ANIMATION
 
 
@@ -141,11 +142,10 @@ enum TouchState
 #endif
 }
 
+//method 1: exchange the adjacent tiles, the sequence of the array elements will be disorderd
 - (void)handleFreeMove:(UILongPressGestureRecognizer *)sender
 {
     TileButton *tile_btn = sender.view; //get the dragged tilebutton
-    
-    //method 1: exchange the adjacent tiles, the sequence of the array elements will be disorderd
     switch(sender.state)
     {
         case UIGestureRecognizerStateBegan:
@@ -217,12 +217,10 @@ enum TouchState
     }
 }
 
+//method 2: move the tiles inorder like Alipay, the order in array remains in sequence always
 - (void)handleSequenceMove:(UILongPressGestureRecognizer *)sender
 {
     TileButton *tile_btn = sender.view; //get the dragged tilebutton
-
-    
-    //method 2: move the tiles inorder like Alipay, the order in array remains in sequence always
     switch(sender.state)
     {
         case UIGestureRecognizerStateBegan:
@@ -366,6 +364,7 @@ enum TouchState
 
 }
 
+//tile delete button clicked
 - (void)tileButtonClicked:(TileButton *)tileBtn
 {
     //remove the button and adjust the tilearray

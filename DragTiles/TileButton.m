@@ -12,19 +12,9 @@
 
 @property (nonatomic, strong) UIButton *deleteButton; //the little del button
 
-
-
 @end
 
 @implementation TileButton
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -35,8 +25,6 @@
         self.backgroundColor = [UIColor yellowColor];
         [self setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 //        [self setTitleColor:[UIColor greenColor] forState:UIControlEventTouchDown];
-        
-        
         
         //add the delete button
         _deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
