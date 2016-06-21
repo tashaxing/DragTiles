@@ -54,7 +54,8 @@
 - (void)tileLongPressed
 {
     //make the tile half transparent and show the deletebutton
-    [_deleteButton setHidden:NO]; //show the deletebutton
+    //show the deletebutton
+    [_deleteButton setHidden:NO];
     [UIView animateWithDuration:0.3 animations:^{
         self.alpha = 0.6;
         self.transform = CGAffineTransformMakeScale(1.1, 1.1);
@@ -85,19 +86,16 @@
 
 - (void)delayHide
 {
-    [_deleteButton setHidden:YES]; //the main button removed then the deletebutton automatically removed
-}
+    //the main button removed then the deletebutton automatically removed
+    [_deleteButton setHidden:YES]; }
 
 #pragma button callback
 - (void)deleteButtonClicked
 {
     NSLog(@"delete button clicked");
-    if([self.delegate respondsToSelector:@selector(tileButtonClicked:)])
-        [self.delegate tileButtonClicked:self];
+    if([self.delegate respondsToSelector:@selector(tileDeleteButtonClicked:)])
+        [self.delegate tileDeleteButtonClicked:self];
     
 }
-
-
-
 
 @end

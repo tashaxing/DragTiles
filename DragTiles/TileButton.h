@@ -10,27 +10,29 @@
 
 @class TileButton;
 
-@protocol TileButtonDelegate<NSObject>
+//the delte button delegate
+@protocol TileDeleteButtonDelegate<NSObject>
 
 @optional
 
-- (void)tileButtonClicked:(TileButton *)tileBtn;
+- (void)tileDeleteButtonClicked:(TileButton *)tileBtn;
 
 @end
 
 
 @interface TileButton : UIButton
 
-@property (nonatomic, assign) id<TileButtonDelegate> delegate;
+@property (nonatomic, assign) id<TileDeleteButtonDelegate> delegate;
+//index in the tile array
+@property (nonatomic, assign) NSInteger index;
 
-@property (nonatomic, assign) NSInteger index; //index in the tile array
-
-- (void)setTileText:(NSString *)text clickText:(NSString *)clickText; //set the tile text outside the class
-
-- (void)tileLongPressed; //tile longpressed and begin to move, called outside
-
-- (void)tileSuspended; //the tile touched pressed but not moved, called outside
-
-- (void)tileSettled; //cancel press or settle the tile to new place, called outside
+//set the tile text outside the class
+- (void)setTileText:(NSString *)text clickText:(NSString *)clickText;
+//tile longpressed and begin to move, called outside
+- (void)tileLongPressed;
+//the tile touched pressed but not moved, called outside
+- (void)tileSuspended;
+//cancel press or settle the tile to new place, called outside
+- (void)tileSettled;
 
 @end
