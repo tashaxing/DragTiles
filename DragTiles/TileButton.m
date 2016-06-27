@@ -94,8 +94,9 @@
 {
     NSLog(@"delete button clicked");
     if([self.delegate respondsToSelector:@selector(tileDeleteButtonClicked:)])
+    {
         [self.delegate tileDeleteButtonClicked:self];
-    
+    }
 }
 
 @end
