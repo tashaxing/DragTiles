@@ -333,6 +333,7 @@ enum TouchState
             if(touchState == MOVE)
             {
                 [tileBtn tileSettled];
+                touchState = UNTOUCHED;
             }
         }
             break;
@@ -348,6 +349,8 @@ enum TouchState
     {
         //when not moving,click anywhere to settle the pretouched tile
         [_tileArray[preTouchID] tileSettled];
+        // must change to UNTOUCHED
+        touchState = UNTOUCHED;
         NSLog(@"suspend canceld");
     }
     else if(touchState == UNTOUCHED)
