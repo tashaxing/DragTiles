@@ -400,6 +400,10 @@ enum TouchState
     //must remove the tileBtn from the view
     //we can also use performselector so that button disappears with animation
     [tileBtn removeFromSuperview];
+    //reduce the count
+    currentTileCount--;
+    //set untouched
+    touchState = UNTOUCHED;
     
     //test the display if the array is inorder
     for(TileButton *tile in _tileArray)
